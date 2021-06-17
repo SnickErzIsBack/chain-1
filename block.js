@@ -1,5 +1,5 @@
 class Block{
-    
+
     // Constructor + Parameter
     constructor(timestamp, lastHash, hash, data){
         this.timestamp = timestamp; //Zeitstempel
@@ -16,6 +16,11 @@ class Block{
             Data:       ${this.data}
             `;   
     }
+
+    static genesis(){
+        return new this("Genesis Time", "-----","h17zl1-bu7zl1", []);
+    }
+    
 }//EoC
 
 module.exports = Block; //Export als Modul
