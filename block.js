@@ -1,4 +1,5 @@
 class Block{
+    
     // Constructor + Parameter
     constructor(timestamp, lastHash, hash, data){
         this.timestamp = timestamp; //Zeitstempel
@@ -13,8 +14,8 @@ class Block{
             Last Hash:  ${this.lastHash.substring(0,10)}
             Hash:       ${this.hash.substring(0,10)}
             Data:       ${this.data}
-            `;
-    
-    
+            `;   
     }
-}
+}//EoC
+
+module.exports = Block; //Export als Modul
