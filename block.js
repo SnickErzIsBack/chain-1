@@ -11,16 +11,16 @@ class Block{
     toString(){ //für De-Bugging-Zwecke, Inhalt des Obj.
             return ` Block - 
             Timestamp:  ${this.timestamp}
-            Last Hash:  ${this.lastHash.substring(0,10)}
-            Hash:       ${this.hash.substring(0,10)}
+            Last Hash:  ${this.lastHash.substring(0,13)}
+            Hash:       ${this.hash.substring(0,13)}
             Data:       ${this.data}
             `;   
     }
 
     static genesis(){
-        return new this("Genesis Time", "-----","h17zl1-bu7zl1", []);
+        return new this("Genesis Time", "-------------","h17zl1-bu7zl1", []);
     }
-    
+
 }//EoC
 
 module.exports = Block; //Export als Modul
