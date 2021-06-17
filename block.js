@@ -21,6 +21,15 @@ class Block{
         return new this("Genesis Time", "-------------","h17zl1-bu7zl1", []);
     }
 
+    // 2. Block ??
+
+    static mineBlock(lastBlock, data) {
+        const timestamp = Date.now();
+        const lastHash = lastBlock.hash;
+        const hash = "HASH to Do";
+        return new this(timestamp,lastHash,hash,data);
+    }
+
 }//EoC
 
 module.exports = Block; //Export als Modul
