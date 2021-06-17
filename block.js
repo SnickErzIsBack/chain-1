@@ -20,7 +20,7 @@ class Block{
     }
 
     static genesis(){
-        return new this("Genesis Time", "-------------","h17zl1-bu7zl1", []);
+        return new this("Genesis Time","-------------","h17zl1-bu7zl1",[]);
     }
 
     // 2. Block ??
