@@ -1,41 +1,44 @@
+
 const SHA256 = require("crypto-js/sha256")
 
+// Klasse Block
 class Block{
 
-    // Constructor + Parameter
-    constructor(timestamp, lastHash, hash, data){
-        this.timestamp = timestamp; //Zeitstempel
-        this.lastHash = lastHash; //Hash des vorhergehenden Blocks
-        this.hash = hash; //Hash des aktuellen Blocks
-        this.data = data; //Inhalt des aktuellen Blocks
+    // Konstruktor + Parameter
+    constructor(timestamp,lastHash,hash,data){
+        this.timestamp = timestamp;
+        this.lastHash = lastHash;
+        this.hash = hash;
+        this.data = data;
     }
 
-    toString(){ //für De-Bugging-Zwecke, Inhalt des Obj.
-            return ` Block - 
-            Timestamp:  ${this.timestamp}
-            Last Hash:  ${this.lastHash.substring(0,256)}
-            Hash:       ${this.hash.substring(0,256)}
-            Data:       ${this.data}
-            `;   
+    toString(){ // für Debugging-Zwecke, Inhalt des Obj.
+        return ` Block -
+            Timestamp: ${this.timestamp}
+            Last Hash: ${this.lastHash.substring(0,256)}
+            Hash:      ${this.hash}
+            Data:      ${this.data}`;
     }
 
-    static genesis(){
-        return new this("Genesis Time","-------------","h17zl1-bu7zl1",[]);
+    static genesis(){ // 1. Block
+        return new this("Genesis time", "------","abc1234",[]);
     }
 
-    // 2. Block ??
-
-    static mineBlock(lastBlock, data) {
-        const timestamp = Date.now();
+   
+    static mineBlock(lastBlock,data){  // Block 2..n etc.
+        const timestamp = Date.now(); // Zeit im ms seit 01.01.1970  || How soon is now?
         const lastHash = lastBlock.hash;
         const hash = Block.hash(timestamp,lastHash,data);
         return new this(timestamp,lastHash,hash,data);
     }
 
+    
     static hash(timestamp,lastHash,data){
         return SHA256(`${timestamp}${lastHash}${data}`).toString();
     }
 
-}//EoC
+} // EoC
 
-module.exports = Block; //Export als Modul
+module.exports = Block; // Export als Modul
+
+//EoF
