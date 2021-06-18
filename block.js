@@ -13,8 +13,8 @@ class Block{
     toString(){ //für De-Bugging-Zwecke, Inhalt des Obj.
             return ` Block - 
             Timestamp:  ${this.timestamp}
-            Last Hash:  ${this.lastHash.substring(0,13)}
-            Hash:       ${this.hash.substring(0,13)}
+            Last Hash:  ${this.lastHash.substring(0,256)}
+            Hash:       ${this.hash.substring(0,256)}
             Data:       ${this.data}
             `;   
     }
